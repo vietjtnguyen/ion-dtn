@@ -20,6 +20,8 @@ endfunction()
 
 # ==== ici ====
 
+find_package(Threads REQUIRED)
+
 add_library(ici SHARED)
 target_sources(ici PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/ici/bulk/STUB_BULK/bulk.c
@@ -88,7 +90,7 @@ target_include_directories(
   $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ici/sdr>
   $<INSTALL_INTERFACE:include>
 )
-target_link_libraries(ici PUBLIC m)
+target_link_libraries(ici PUBLIC m Threads::Threads)
 set_target_properties(
   ici PROPERTIES
   OUTPUT_NAME ici
