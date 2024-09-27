@@ -80,7 +80,7 @@ target_sources(ici PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/ici/test/owltsim.c
 )
 target_compile_definitions(ici PUBLIC SPACE_ORDER=3 IMC_EXT)
-target_compile_features(ici PUBLIC c_std_99)
+target_compile_options(ici PUBLIC "$<$<COMPILE_LANGUAGE:C>:-std=gnu99>")
 target_include_directories(
   ici PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ici>
