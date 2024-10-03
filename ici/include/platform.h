@@ -329,10 +329,12 @@ extern int			rtems_shell_main_cp(int argc, char *argv[]);
 #endif
 #define ERROR			(-1)
 
+#ifndef UNUSED
 #ifdef __GNUC__
 #define UNUSED			__attribute__((unused))
 #else
 #define UNUSED
+#endif
 #endif
 
 #ifndef MIN
